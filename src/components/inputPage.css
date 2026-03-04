@@ -1,0 +1,333 @@
+/* Page background */
+.input-page {
+  min-height: 100vh;
+  background: #f4f4f4;
+}
+
+/* ----- HEADER ----- */
+.input-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 24px;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.input-header-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.input-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #111;
+}
+
+.input-logo-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #c00;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.input-progress-wrap {
+  min-width: 280px;
+}
+
+.input-progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.input-progress-bar {
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.input-progress-fill {
+  height: 100%;
+  background: #2563eb;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.input-step-label {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.input-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.input-level-badge {
+  padding: 8px 14px;
+  background: #2563eb;
+  color: white;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.input-close {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: #f0f0f0;
+  border-radius: 8px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #555;
+}
+
+.input-close:hover {
+  background: #e0e0e0;
+  color: #111;
+}
+
+/* ----- MAIN CARD ----- */
+.input-main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+}
+
+.input-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+}
+
+.input-card-head {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.input-card-icon {
+  font-size: 2rem;
+}
+
+.input-card-title {
+  margin: 0 0 6px;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.input-card-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* One block per question type (e.g. Kanji Reading) */
+.input-block {
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 24px;
+}
+
+.input-block-title {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.input-block-meta {
+  margin: 0 0 14px;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.input-block-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #334155;
+  margin-bottom: 10px;
+}
+
+.input-block-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.input-slider {
+  flex: 1;
+  min-width: 120px;
+  height: 8px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #e2e8f0;
+  border-radius: 999px;
+}
+
+.input-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #2563eb;
+  cursor: pointer;
+  border: none;
+}
+
+.input-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #2563eb;
+  cursor: pointer;
+  border: none;
+}
+
+.input-block-count {
+  min-width: 40px;
+  font-weight: 600;
+  color: #111;
+}
+
+.input-btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid #e2e8f0;
+  background: white;
+  color: #2563eb;
+}
+
+.input-btn:hover:not(:disabled) {
+  background: #eff6ff;
+}
+
+.input-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.input-btn-small {
+  min-width: 44px;
+}
+
+.input-card-footer {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.input-btn-primary {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  display: block;
+}
+
+.input-btn-primary:hover {
+  background: #1d4ed8;
+}
+
+/* ----- RESULTS ----- */
+.input-results-title {
+  margin: 0 0 24px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111;
+  text-align: center;
+}
+
+.input-results-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.input-results-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: #eff6ff;
+  border-radius: 12px;
+  margin: 20px 0;
+  font-weight: 600;
+}
+
+.input-pass {
+  color: #059669;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-fail {
+  color: #dc2626;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+  .input-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .input-progress-wrap {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .input-card {
+    padding: 20px;
+  }
+
+  .input-block-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .input-slider {
+    width: 100%;
+  }
+}
