@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import japan from "../assets/image/japan.webp";
+import japan from ".src/assets/image/japan.webp";
 import "./home.css";
 
 
