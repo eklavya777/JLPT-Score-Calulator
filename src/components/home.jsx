@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import japan from "../assets/image/japan.webp";
 import "./home.css";
+
 
 function Home() {
   const navigate = useNavigate();
@@ -57,10 +59,7 @@ function Home() {
       {/* WHY CHECK SECTION */}
       <section className="why-section">
         <div className="why-image">
-          <img
-            src="./src/assets/image/japan.webp"
-            alt="Japan"
-          />
+        <img src={japan} alt="Japan" />
         </div>
 
         <div className="why-text">
