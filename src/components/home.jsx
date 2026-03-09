@@ -25,26 +25,31 @@ function Home() {
         <div className="levels">
           <div className="card" onClick={() => handleClick("N5")}>
             <h3>N5</h3>
-            <p>Basic</p>
+            <h4>Basic</h4>
+            <p>Understanding of some basic Japanese.</p>
           </div>
 
           <div className="card" onClick={() => handleClick("N4")}>
             <h3>N4</h3>
-            <p>Elementary</p>
+            <h4>Elementary</h4>
+            <p>Understanding of some basic Japanese.</p>
           </div>
           <div className="card" onClick={() => handleClick("N3")}>
             <h3>N3</h3>
-            <p>Intermediate</p>
+            <h4>Intermediate</h4>
+            <p>Understanding of Japanese in everyday situations.</p>
           </div>
                                                 
           <div className="card" onClick={() => handleClick("N2")}>
             <h3>N2</h3>
-            <p>Pre-Advanced</p>
+            <h4>Pre-Advanced</h4>
+            <p>Understanding of Japanese in everyday situations.</p>
           </div>
 
           <div className="card" onClick={() => handleClick("N1")}>
             <h3>N1</h3>
-            <p>Advanced</p>
+            <h4>Advanced</h4>
+            <p>Understanding of Japanese in a variety of circumstances.</p>
           </div>
         </div>
       </section>
@@ -53,7 +58,7 @@ function Home() {
       <section className="why-section">
         <div className="why-image">
           <img
-            src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c"
+            src="./src/assets/image/japan.webp"
             alt="Japan"
           />
         </div>
