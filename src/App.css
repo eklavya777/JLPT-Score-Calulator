@@ -1,42 +1,466 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* ================= GLOBAL ================= */
+
+body{
+  font-family:"Inter","Segoe UI",sans-serif;
+  background:#f4f6f8;
+  margin:0;
+  color:#222;
+}
+
+.results-page{
+  background:#f4f6f8;
+  min-height:100vh;
+}
+
+/* ================= HEADER ================= */
+
+.input-header{
+  background:white;
+  padding:16px 28px;
+  border-bottom:1px solid #e6e6e6;
+}
+
+.input-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:600;
+  font-size:18px;
+}
+
+.input-logo-circle{
+  background:#ff4d4f;
+  color:white;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+  font-weight:700;
+}
+
+/* ================= MAIN CONTAINER ================= */
+
+.results-container{
+  max-width:900px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+/* ================= RESULT BANNER ================= */
+
+.result-banner{
+  text-align:center;
+  border-radius:12px;
+  padding:36px 20px;
+  color:white;
+  margin-bottom:30px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.result-banner.pass{
+  background:linear-gradient(135deg,#2ecc71,#27ae60);
+}
+
+.result-banner.fail{
+  background:linear-gradient(135deg,#ff6b6b,#e74c3c);
+}
+
+.trophy{
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.result-banner h1{
+  margin:5px 0;
+  font-size:28px;
+  font-weight:700;
+}
+
+.result-banner p{
+  opacity:0.9;
+  font-size:15px;
+}
+
+/* ================= SCORE CARD ================= */
+
+.score-card{
+  background:white;
+  border-radius:12px;
+  padding:30px;
+  text-align:center;
+  box-shadow:0 6px 16px rgba(0,0,0,0.08);
+  margin-bottom:30px;
+}
+
+.score-label{
+  font-size:12px;
+  letter-spacing:1px;
+  color:#888;
+}
+
+.score-number{
+  font-size:52px;
+  margin:6px 0;
+  font-weight:700;
+}
+
+.score-sub{
+  color:#777;
+  margin-bottom:20px;
+}
+
+.score-bar{
+  width:100%;
+  height:8px;
+  background:#eee;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.score-fill{
+  height:100%;
+  background:#2f80ed;
+}
+
+.score-scale{
+  display:flex;
+  justify-content:space-between;
+  margin-top:8px;
+  font-size:12px;
+  color:#777;
+}
+
+/* ================= SECTION TITLE ================= */
+
+.section-title{
+  font-size:20px;
+  margin-bottom:18px;
+  font-weight:600;
+}
+
+/* ================= SECTIONS GRID ================= */
+
+.sections-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+/* ================= SECTION CARD ================= */
+
+.section-card{
+  background:white;
+  border-radius:12px;
+  padding:18px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.06);
+  border-top:4px solid transparent;
+  transition:all .25s ease;
+}
+
+.section-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* HEADER */
+
+.section-header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:12px;
+}
+
+.section-header h4{
+  margin:0;
+  font-size:15px;
+  font-weight:600;
+  flex:1;
+}
+
+.section-score{
+  font-weight:700;
+  font-size:18px;
+}
+
+/* ================= ICON STYLE ================= */
+
+.section-icon{
+  width:34px;
+  height:34px;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+}
+
+/* ICON COLORS */
+
+.card-0 .section-icon{
+  background:#e8f1ff;
+  color:#2f80ed;
+}
+
+.card-1 .section-icon{
+  background:#e8f8ef;
+  color:#27ae60;
+}
+
+.card-2 .section-icon{
+  background:#e6fbf8;
+  color:#16a085;
+}
+
+.card-3 .section-icon{
+  background:#fff2e6;
+  color:#f2994a;
+}
+
+/* ================= SECTION PROGRESS ================= */
+
+.section-bar{
+  width:100%;
+  height:7px;
+  background:#eee;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.section-fill{
+  height:100%;
+  border-radius:20px;
+}
+
+/* PROGRESS COLORS */
+
+.card-0 .section-fill{background:#2f80ed;}
+.card-1 .section-fill{background:#27ae60;}
+.card-2 .section-fill{background:#16a085;}
+.card-3 .section-fill{background:#f2994a;}
+
+/* ================= SECTION TOP BORDER COLORS ================= */
+
+.card-0{border-top-color:#2f80ed;}
+.card-1{border-top-color:#27ae60;}
+.card-2{border-top-color:#16a085;}
+.card-3{border-top-color:#f2994a;}
+
+/* ================= BUTTONS ================= */
+
+.results-buttons{
+  display:flex;
+  gap:15px;
+  margin-top:30px;
+}
+
+.btn-light{
+  flex:1;
+  background:#f1f1f1;
+  border:none;
+  padding:14px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.btn-light:hover{
+  background:#e3e3e3;
+}
+
+.btn-primary{
+  flex:1;
+  background:#2f80ed;
+  color:white;
+  border:none;
+  padding:14px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.btn-primary:hover{
+  background:#1f6fe0;
+}
+
+/* ================= INPUT PAGE ================= */
+
+.input-main {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* ================= CARD ================= */
+
+.input-card {
+  background: white;
+  border-radius: 16px;
+  padding: 35px;
+  width: 100%;
+  max-width: 760px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.input-card-head {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.input-card-icon {
+  font-size: 26px;
+}
+
+.input-card-title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.input-card-desc {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* ================= INPUT BLOCK ================= */
+
+.input-block {
+  padding: 20px 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.input-block:last-child {
+  border-bottom: none;
+}
+
+.input-block-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.input-block-meta {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 6px 0 14px;
+}
+
+.input-block-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ================= SLIDER ================= */
+
+.input-slider {
+  flex: 1;
+  appearance: none;
+  height: 8px;
+  border-radius: 10px;
+  background: #e5e7eb;
+  outline: none;
+}
+
+.input-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #2563eb;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.input-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #2563eb;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ================= BUTTONS ================= */
+
+.input-btn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.input-btn-small {
+  background: #f3f4f6;
+  font-size: 16px;
+}
+
+.input-btn-small:hover {
+  background: #e5e7eb;
+}
+
+.input-btn-primary {
+  background: #2563eb;
+  color: white;
+  padding: 12px 20px;
+  font-size: 15px;
+}
+
+.input-btn-primary:hover {
+  background: #1e4ed8;
+}
+
+.input-block-count {
+  font-weight: 600;
+  min-width: 50px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* ================= FOOTER ================= */
+
+.input-card-footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ================= HEADER RIGHT ================= */
+
+.input-header-right{
+  display:flex;
+  align-items:center;
+  gap:14px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* JLPT LEVEL BADGE */
+
+.input-level-badge{
+  background:#e8f1ff;
+  color:#2f80ed;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:600;
 }
 
-.card {
-  padding: 2em;
+/* CLOSE BUTTON */
+
+.input-close{
+  width:34px;
+  height:34px;
+  border:none;
+  border-radius:8px;
+  background:#f1f1f1;
+  font-size:18px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all 0.2s ease;
 }
 
-.read-the-docs {
-  color: #888;
+.input-close:hover{
+  background:#ffe5e5;
+  color:#e74c3c;
 }
