@@ -1,6 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import japan from "../assets/image/Japan.webp";;
+=======
+import japan from "../assets/image/Japan.webp";
+>>>>>>> 5d4643a (Initial commit - JLPT Score Calculator)
 import "./home.css";
 
 
