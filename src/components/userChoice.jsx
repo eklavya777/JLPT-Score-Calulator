@@ -70,7 +70,7 @@ function UserChoice() {
     try {
 
       const res = await axios.get(
-        `https://jlpt-score-calulator-1.onrender.com/get-attempts/${user.uid}`
+        `http://localhost:5000/get-attempts/${user.uid}`
       );
 
       const filteredAttempts = res.data.attempts.filter(
