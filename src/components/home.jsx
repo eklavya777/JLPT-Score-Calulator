@@ -5,7 +5,15 @@ import kanjiBg from "../assets/image/kanjis.png";
 import "./home.css";
 
 import { auth, provider, db } from "../components/firebase";
-import { signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
+
+import {
+  signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
+  signOut,
+  onAuthStateChanged
+} from "firebase/auth";
+
 import { doc, setDoc } from "firebase/firestore";
 
 function Home() {
@@ -13,12 +21,41 @@ function Home() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
+  // detect if device is mobile
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
   // Detect login state
   useEffect(() => {
 
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });
+
+    // handle redirect login (for mobile)
+    getRedirectResult(auth)
+      .then(async (result) => {
+
+        if (result && result.user) {
+
+          const user = result.user;
+
+          await setDoc(
+            doc(db, "users", user.uid),
+            {
+              name: user.displayName,
+              email: user.email,
+              photo: user.photoURL,
+              createdAt: new Date()
+            },
+            { merge: true }
+          );
+
+        }
+
+      })
+      .catch((err) => {
+        console.error("Redirect login error:", err);
+      });
 
     return () => unsubscribe();
 
@@ -29,20 +66,30 @@ function Home() {
 
     try {
 
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
+      if (isMobile) {
 
-      // Save user in Firestore
-      await setDoc(
-        doc(db, "users", user.uid),
-        {
-          name: user.displayName,
-          email: user.email,
-          photo: user.photoURL,
-          createdAt: new Date()
-        },
-        { merge: true }
-      );
+        // mobile uses redirect
+        await signInWithRedirect(auth, provider);
+
+      } else {
+
+        // desktop uses popup
+        const result = await signInWithPopup(auth, provider);
+
+        const user = result.user;
+
+        await setDoc(
+          doc(db, "users", user.uid),
+          {
+            name: user.displayName,
+            email: user.email,
+            photo: user.photoURL,
+            createdAt: new Date()
+          },
+          { merge: true }
+        );
+
+      }
 
     } catch (err) {
 
@@ -54,9 +101,7 @@ function Home() {
 
   // LOGOUT
   const logout = async () => {
-
     await signOut(auth);
-
   };
 
   function handleClick(level) {
