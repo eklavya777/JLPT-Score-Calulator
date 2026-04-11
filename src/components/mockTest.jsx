@@ -27,7 +27,7 @@ function MockTestPage() {
     try {
 
       const res = await axios.get(
-        `http://localhost:5000/get-test?level=${level}&testId=${testId}`
+        `https://jlpt-backend.onrender.com/get-test?level=${level}&testId=${testId}`
       );
 
       setData(res.data);
