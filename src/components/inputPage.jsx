@@ -23,27 +23,27 @@ function InputPage() {
 
   const { sections, passScore } = levelData;
 
-  /* FIXED: step starts from 0 */
   const [step, setStep] = useState(0);
-  const [showResults, setShowResults] = useState(false);
 
   const [answers, setAnswers] = useState(() => {
 
     const start = {};
 
     sections.forEach((section) => {
+
       start[section.id] = {};
 
       section.parts.forEach((_, index) => {
         start[section.id][index] = 0;
       });
+
     });
 
     return start;
+
   });
 
-  /* RESET WHEN LEVEL CHANGES */
-
+  // RESET WHEN LEVEL CHANGES
   useEffect(() => {
 
     const reset = {};
@@ -60,17 +60,13 @@ function InputPage() {
 
     setAnswers(reset);
     setStep(0);
-    setShowResults(false);
 
   }, [level]);
 
   const section = sections[step];
   const totalSteps = sections.length;
 
-  /* FIXED PROGRESS FORMULA */
-
-  const progressPercent = Math.round(((step) / (totalSteps-1)) * 100);
- 
+  const progressPercent = Math.round((step / (totalSteps - 1)) * 100);
 
   function updateCorrect(sectionId, partIndex, newValue) {
 
@@ -89,14 +85,46 @@ function InputPage() {
 
   }
 
+  // 🔥 CALCULATE RESULT + REDIRECT
   function handleContinue() {
 
     if (step < totalSteps - 1) {
       setStep(step + 1);
-    } 
-    else {
-      setShowResults(true);
+      return;
     }
+
+    // JLPT SCALE CALCULATION
+    const sectionScores = sections.map((sec) => {
+
+      let correctTotal = 0;
+      let questionTotal = 0;
+
+      sec.parts.forEach((part, idx) => {
+
+        const correct = answers[sec.id][idx] || 0;
+
+        correctTotal += correct;
+        questionTotal += part.questions;
+
+      });
+
+      const score = Math.round((correctTotal / questionTotal) * 60);
+
+      return {
+        name: sec.title,
+        score
+      };
+
+    });
+
+    navigate("/result", {
+      state: {
+        level,
+        passScore,
+        sectionScores,
+        mode: "calculator"
+      }
+    });
 
   }
 
@@ -104,186 +132,11 @@ function InputPage() {
     navigate("/");
   }
 
-  /* ICON FUNCTION */
-
-  const getSectionIcon = (name) => {
-
-    const lower = name.toLowerCase();
-
-    if (lower.includes("vocabulary")) return "📒";
-    if (lower.includes("grammar")) return "🧩";
-    if (lower.includes("reading")) return "📖";
-    if (lower.includes("listening")) return "🎧";
-
-    return "📊";
-
-  };
-
-  // ================= RESULTS SCREEN =================
-
-  if (showResults) {
-
-    let totalScore = 0;
-
-    const sectionScores = sections.map((sec) => {
-
-      let sectionTotal = 0;
-
-      sec.parts.forEach((part, idx) => {
-
-        const correct = answers[sec.id][idx] || 0;
-        sectionTotal += correct * part.marksEach;
-
-      });
-
-      totalScore += sectionTotal;
-
-      return {
-        name: sec.title,
-        score: sectionTotal,
-      };
-
-    });
-
-    const passed = totalScore >= passScore;
-    const percent = Math.round((totalScore / 180) * 100);
-
-    return (
-
-      <div className="results-page">
-
-        <header className="input-header">
-
-          <div className="input-logo">
-            <span className="input-logo-circle">JP</span>
-            <span>JLPT Calc</span>
-          </div>
-
-        </header>
-
-        <div className="results-container">
-
-          <div className={`result-banner ${passed ? "pass" : "fail"}`}>
-
-            <div className="trophy">
-              {passed ? "🏆" : "❌"}
-            </div>
-
-            <h1>
-              {passed ? "Congratulations!" : "Better Luck Next Time"}
-            </h1>
-
-            <p>
-              {passed
-                ? `You Likely Passed JLPT ${level}`
-                : `You Did Not Reach The Passing Score`}
-            </p>
-
-          </div>
-
-          <div className="score-card">
-
-            <p className="score-label">TOTAL SCORE</p>
-
-            <h2 className="score-number">
-              {totalScore}
-            </h2>
-
-            <p className="score-sub">
-              out of 180 points
-            </p>
-
-            <div className="score-bar">
-
-              <div
-                className="score-fill"
-                style={{ width: `${percent}%` }}
-              />
-
-            </div>
-
-            <div className="score-scale">
-              <span>0</span>
-              <span>Passing: {passScore}</span>
-              <span>180</span>
-            </div>
-
-          </div>
-
-          <h3 className="section-title">
-            Section Breakdown
-          </h3>
-
-          <div className="sections-grid">
-
-            {sectionScores.map((s, i) => (
-
-              <div key={s.name} className={`section-card card-${i}`}>
-
-                <div className="section-header">
-
-                  <div className="section-icon">
-                    {getSectionIcon(s.name)}
-                  </div>
-
-                  <div>
-                    <h4>{s.name}</h4>
-                  </div>
-
-                  <span className="section-score">
-                    {s.score}
-                  </span>
-
-                </div>
-
-                <div className="section-bar">
-
-                  <div
-                    className="section-fill"
-                    style={{
-                      width: `${(s.score / 60) * 100}%`
-                    }}
-                  />
-
-                </div>
-
-              </div>
-
-            ))}
-
-          </div>
-
-          <div className="results-buttons">
-
-            <button
-              className="btn-light"
-              onClick={() => window.location.reload()}
-            >
-              Calculate Again
-            </button>
-
-            <button
-              className="btn-primary"
-              onClick={handleClose}
-            >
-              Back to Home
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    );
-
-  }
-
-  // ================= INPUT PAGE =================
-
   return (
 
     <div className="input-page">
+
+      {/* HEADER */}
 
       <header className="input-header">
 
@@ -352,6 +205,8 @@ function InputPage() {
         </div>
 
       </header>
+
+      {/* MAIN */}
 
       <main className="input-main">
 
@@ -458,7 +313,9 @@ function InputPage() {
               className="input-btn input-btn-primary"
               onClick={handleContinue}
             >
-              {section.nextButtonText} →
+              {step === totalSteps - 1
+                ? "Show Result →"
+                : section.nextButtonText + " →"}
             </button>
 
           </div>

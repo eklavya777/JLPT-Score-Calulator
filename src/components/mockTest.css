@@ -1,0 +1,205 @@
+/* ================= MOCK TEST PAGE ================= */
+
+.mocktest-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.mocktest-desc {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+/* ================= SECTION TITLE ================= */
+
+.mocktest-section-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 25px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #e5e7eb;
+  color: #1f2937;
+}
+
+/* ================= QUESTION BLOCK ================= */
+
+.mocktest-question {
+  font-size: 19px;
+;
+  margin-bottom: 16px;
+  color: #1f2937;
+  line-height: 1.6;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* ================= OPTIONS ================= */
+
+.mocktest-options {
+  display: block !important;
+  margin-left: 20px;
+}
+
+.mocktest-options label {
+  display: block !important;
+  margin-bottom: 16px !important;
+  width: 100% !important;
+}
+
+/* OPTION CARD */
+.mocktest-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  font-size: 19px;
+  line-height: 1.5;
+  color: #374151;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin-bottom: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.mocktest-option label {
+  display: flex !important;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.mocktest-option::before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 0;
+  background: #3b82f6;
+  border-radius: 2px;
+  transition: height 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.mocktest-option:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.mocktest-option:hover::before {
+  height: 60%;
+}
+
+/* RADIO */
+.mocktest-option input {
+  accent-color: #3b82f6;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* SELECTED STATE */
+.mocktest-option.active {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  border-color: #3b82f6;
+  color: #1e40af;
+  font-weight: 500;
+  transform: translateX(6px);
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.25);
+}
+
+.mocktest-option.active::before {
+  height: 80%;
+  background: #3b82f6;
+}
+
+.mocktest-option.active:hover {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  border-color: #2563eb;
+}
+
+/* ================= QUESTION CARD OVERRIDE ================= */
+
+.input-block {
+  padding: 24px;
+  border-radius: 16px;
+  background: #ffffff;
+  margin-bottom: 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  position: relative;
+}
+
+.input-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+  border-radius: 16px 16px 0 0;
+}
+
+/* ================= SUBMIT BUTTON ================= */
+
+.mocktest-submit {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 600px) {
+  .input-card {
+    padding: 20px;
+  }
+
+  .mocktest-section-title {
+    font-size: 16px;
+  }
+
+  .mocktest-question {
+    font-size: 14px;
+    padding: 12px 16px;
+  }
+
+  .mocktest-options {
+    margin-left: 10px;
+    gap: 10px;
+  }
+
+  .mocktest-option {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .input-block {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .mocktest-option:hover,
+  .mocktest-option.active {
+    transform: translateX(2px);
+  }
+}

@@ -1,7 +1,5 @@
-/**
- * JLPT Master Data (Array Version)
- * Each item represents one level
- */
+
+
 export const jlptData = [
     {
       level: "N5",
@@ -104,7 +102,7 @@ export const jlptData = [
         }
       ]
     },
-
+    
     {
       level: "N3",
       passScore: 95,
