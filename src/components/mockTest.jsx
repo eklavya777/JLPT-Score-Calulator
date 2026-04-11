@@ -27,7 +27,7 @@ function MockTestPage() {
     try {
 
       const res = await axios.get(
-        `https://jlpt-score-calulator-1.onrender.com/get-test?level=${level}&testId=${testId}`
+        `http://localhost:5000/get-test?level=${level}&testId=${testId}`
       );
 
       setData(res.data);
