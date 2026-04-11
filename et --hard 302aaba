@@ -1,0 +1,17 @@
+[33m5d4643a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: reset: moving to HEAD
+[33m5d4643a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{1}: rebase (abort): returning to refs/heads/main
+[33m302aaba[m HEAD@{2}: commit: Implemented backend server, connected Firestore mock test data, and updated frontend UI
+[33ma3fcb88[m HEAD@{3}: commit: resolve conflict
+[33md056d1c[m HEAD@{4}: pull origin main --rebase (start): checkout d056d1cf56daca6914343485845a1a258f25980c
+[33m5d4643a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{5}: commit: Initial commit - JLPT Score Calculator
+[33m1b2d3d4[m HEAD@{6}: commit: fix image import
+[33mb4d9c8a[m HEAD@{7}: pull origin main --rebase (finish): returning to refs/heads/main
+[33mb4d9c8a[m HEAD@{8}: pull origin main --rebase (pick): fixed image path and updated project
+[33mb45ff0d[m HEAD@{9}: pull origin main --rebase (start): checkout b45ff0d3d3c522184917f241375ab451d5d4ab9a
+[33m88db649[m HEAD@{10}: commit: fixed image path and updated project
+[33mbab8ff1[m HEAD@{11}: commit: final rename to lowercase
+[33m06a5a26[m HEAD@{12}: commit: final rename to lowercase
+[33meef9764[m HEAD@{13}: commit: temporary rename
+[33m3f7853c[m HEAD@{14}: commit: Fixed import issue
+[33m4921c8f[m HEAD@{15}: Branch: renamed refs/heads/master to refs/heads/main
+[33m4921c8f[m HEAD@{17}: commit (initial): Initial commit

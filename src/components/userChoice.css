@@ -6,8 +6,7 @@
   color:#1f2937;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: 50px; /* added padding to account for fixed header */
+  align-items: center; /* added padding to account for fixed header */
 }
 
 /* HEADER */
