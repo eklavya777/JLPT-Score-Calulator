@@ -97,7 +97,7 @@ const handleSubmit = async () => {
     console.log("Sending request to backend...");
 
     const res = await axios.post(
-      "http://localhost:5000/submit-test",
+      "https://jlpt-score-calulator.onrender.com/submit-test",
       {
         uid: user.uid,
         level,
