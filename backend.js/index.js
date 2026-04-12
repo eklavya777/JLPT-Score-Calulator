@@ -8,12 +8,11 @@ app.use(cors());
 app.use(express.json());
 
 // 🔥 Firebase Setup
-const serviceAccount = require("./serviceAccountKey.json");
-
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+  credential: admin.credential.cert(
+    JSON.parse(process.env.FIREBASE_KEY)
+  )
 });
-
 const db = admin.firestore();
 
 
@@ -406,7 +405,7 @@ app.get("/get-attempts/:uid", async (req, res) => {
 
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT} 🚀`);
