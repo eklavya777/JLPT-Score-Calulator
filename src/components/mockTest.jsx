@@ -27,7 +27,7 @@ function MockTestPage() {
     try {
 
       const res = await axios.get(
-        `https://jlpt-score-calulator.onrender.com/get-test?level=${level}&testId=${testId}`
+        `https://jlpt-preparation-web-app.onrender.com/get-test?level=${level}&testId=${testId}`
       );
 
       setData(res.data);
@@ -97,7 +97,7 @@ const handleSubmit = async () => {
     console.log("Sending request to backend...");
 
     const res = await axios.post(
-      "https://jlpt-score-calulator.onrender.com/submit-test",
+      "https://jlpt-preparation-web-app.onrender.com/submit-test",
       {
         uid: user.uid,
         level,
