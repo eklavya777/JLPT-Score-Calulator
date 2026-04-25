@@ -51,7 +51,7 @@ function TestChoice() {
   // fetch tests when page loads
   useEffect(() => {
     axios
-      .get(`https://jlpt-preparation-web-app.onrender.com/${level}`)
+      .get(`https://jlpt-preparation-web-app.onrender.com/get-tests/${level}`)
       .then((res) => {
         setTests(res.data.tests);
       })
